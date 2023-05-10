@@ -1,0 +1,22 @@
+This attack just needs three steps:
+
+1. Check how the target SC calculates the NFT category: We don't know the SC 
+code in this CTF, but we know its address and the blockchain it is deployed 
+on. Then we can go to etherscan and see the SC code. The contract address 
+is: 0xFD3CbdbD9D1bBe0452eFB1d1BFFa94C8468A66fC
+
+2. Analyze the decoded code: Once we find the SC, we can decode the 
+bytecode and analyze it. We can see the next lines of code in the mint 
+function:
+
+if sha3(id, caller, block.number) % 100 > 90:
+      tokens[stor0] = 3
+
+And this is what we are interested in: The way we can get an NFT of the
+superior class. 
+
+3. Exploit: Now, we can go to our foundry test and program the exploit. 
+To do that, we need to get the hash of the NFT id, our address, and the 
+current block number. Then we can convert this hash into a number and 
+calculate the modulus of 100 of this hash. Finally, we will call the mint 
+function if the NFT of our calculated number is greater than 90.

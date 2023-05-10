@@ -1,0 +1,7 @@
+The contract we want to exploit uses known values to generate a "random" 
+value used to select the NFT category. There are three categories for this 
+NFT, common, rare, and superior. The category is selected depending on the 
+hash produced by the NFT id we are minting, the user address launching the
+ transaction, and the current block number. Since we know all these values, 
+ we can get the hash all of them are producing and mint when the category 
+ of NFT is superior.
