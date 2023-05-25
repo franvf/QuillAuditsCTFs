@@ -1,0 +1,16 @@
+In this CTF, we have 5 BTokens, and knowing that AMMs provoke price slippages, we can try to 
+take advantage of it.
+
+1. The first step is to swap our B token for another token with higher liquidity to get more 
+tokens than we expect. "A" token is the unique token with more liquidity than the B token, so we 
+swap our B tokens for "A" tokens.
+
+2. Knowing that we must exchange a token with low liquidity for another with more liquidity to 
+get more profit, we also need to find a token that has less liquidity than token B, which is the 
+one we want to get finally. Tokens C, D, and E have less liquidity than token B, so that we 
+could exchange token A for whichever of these tokens. But to maximize our profit, we can swap 
+our A token for the one with less liquidity. This is the token C. Therefore, we swap token A for 
+token C.
+
+3. Now that we have token C, we can swap it for token B. Now we have more B tokens than 
+initially. 

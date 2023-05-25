@@ -1,0 +1,6 @@
+Because decentralized exchanges use an AMM (automated market maker) algorithm, which adjusts a 
+token's price depending on its liquidity, sometimes getting more or fewer tokens than expected 
+is possible due to this price adjustment. If we swap a token with a lot of liquidity for another 
+with very low liquidity, we probably get fewer tokens than expected. On the other hand, if we 
+swap tokens with very low liquidity for another with a lot of liquidity, we will get more tokens 
+than expected.
