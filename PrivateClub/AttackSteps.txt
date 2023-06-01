@@ -1,0 +1,21 @@
+The steps that could be taken to exploit the smart contract could be the next ones:
+
+1. Register our hacker account as a club member: To do this, we must know how many 
+members belong to the club. This is to fill the array correctly. E.g., if five 
+members belong to the club, we will need to fill the array with five addresses, 
+which could be our hacker address this five times. Once we have this array completed,
+we can call this function, sending 5 ETH (which will come back to us because we 
+filled the full array with our address)
+
+2. Once the user is registered as a member of the club, we can execute a loop to add 
+our user over and over again to the club. Then the next user who wants to become a 
+member club will run out of gas. 
+
+3. Now we are able to buy the admin role, which allows us to get the control of the 
+club. To do this, we need to execute the function buyAdminRole and send 10 ETH to 
+the function throughout this function.
+
+4. Once we are owners of the smart contract, we can call the adminWithdraw function, 
+which allows us to drain the smart contract. We will execute this function, passing 
+our address and the contract balance as parameters. When the function completes, 
+we will get the total amount of ETH the contract had. 

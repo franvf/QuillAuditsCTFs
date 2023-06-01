@@ -1,0 +1,17 @@
+This attack consists of getting some voting power without any token.
+
+1. Get voting power from Alice: Alice is an account we can access, which possesses 1000 tokens. 
+With these tokens, we can delegate voting power to our hacking account. To do so, we call from 
+Alice's account the delegate function, and we will pass our hacker address as a parameter.
+Then we can transfer these tokens to Bob's account and repeat this step.
+
+2. Get voting power from Bob: Bob is another account we have access to, who initially possessed 
+0 tokens, but we transferred 1000 from Alice to Bob, so now Bob has 1000 tokens. From Bob's 
+account, we can call the delegate function and delegate his voting power to our hacker account. 
+Therefore, now our hacker account is accumulating 2000 power. After this, Bob will transfer his 
+tokens to Carl, the last account we have access to. 
+
+3. Get voting power from Carl. Now that Carl's account has the 1000 tokens, we just need to 
+execute the delegate function again to give the power to the hacker account, so this account will
+accumulate 3000 voting power, which is enough for our purpose. Finally, we need to transfer 1000 
+tokens to the hacker account. 

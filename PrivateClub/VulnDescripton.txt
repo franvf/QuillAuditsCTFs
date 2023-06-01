@@ -1,0 +1,25 @@
+There is one main vulnerability, and this can be found in the becomeMember function. 
+The club's goal is to allow whoever as a member, but each time a user becomes a 
+member must pay 1ETH for each member. The problem is that the user executing the 
+function becomeMember has to pass the array of the current members of the club 
+(array of addresses) as a parameter, and the function will send an ETH for each 
+address in this array without checking if the address belongs to the club. This 
+vulnerability allows us as hackers to create an array and fill it with our address. 
+E.g., if there are five members in the club, and we must pay 5 ETH to become members 
+of the club (1 ETH for each member), we could add five times our address to the 
+array, so we would be paying that 5 ETHs to ourselves. Therefore we will just spend 
+the gas of executing the transaction instead of 5 ethers + the gas. 
+
+There is another vulnerability in this contract, and it is also at becomeMember 
+function. This function uses a loop to send the ETH to each address in the array, 
+and the length of this array must be equal to the number of members in the club. 
+Suppose there are a lot of members in this club. In that case, this array will be 
+very large, so this could cause a DoS error in the SC because the loop will need a 
+lot of iterations, and the gas of the tx will be very high, so the tx could not fit 
+in a block and no more members could be added to the community. We can take advantage
+of this other vulnerability to add our hacker account more than once to the club 
+(because the becomeMember doesn't check if an account is already a club member) and 
+don't allow other users to be part of this club. 
+
+These are the main vulnerabilities of the contract. Both of them will be exploited 
+in the test file PrivateClub.t.sol as the POC of the attack.

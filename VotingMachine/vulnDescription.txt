@@ -1,0 +1,15 @@
+The main goal of the VotingMachine smart contract is to use the governance token to allow the 
+users who possess it to vote for some decisions. The bigger the amount of tokens a user has, the 
+bigger the voting power. Normal users can't buy tokens or mint by themselves, just the contract 
+owner has permission to mint or burn it, so if we want to get some voting power, we will need to
+ contact the owner and convince it to mint some tokens for us. But we have another alternative: 
+ to make someone delegate his/her tokens to us. In our case, we get access to three different 
+ accounts, one with 1000 tokens and the others without any tokens. We need 3000 tokens to carry 
+ out a malicious proposition, so we must find some vulnerability in the smart contract to 
+ convert these 1000 tokens into 3000 votes. This is possible thanks to how delegates work in the
+ smart contract. When someone delegates its tokens, it also gives some voting power to the 
+ delegatee. Suppose a user transfers his/her tokens to another account. In that case, the voting 
+ power of the delegatee is not modified, so we can transfer the tokens between accounts and 
+ delegate them to the hacker. The hacker would be accumulating voting power just by using the 
+ same tokens. This is what I did to exploit this contract. 
+ To see it go to POC test/VotingMachine.t.sol).
